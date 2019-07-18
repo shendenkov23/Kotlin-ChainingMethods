@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(input: LoginParams, compl: ((Result<User>) -> Unit)) {
+    private fun login(input: LoginParams, compl: ChainOperationCompletion<User>) {
         Log.d("Chaining", "Start login")
 
         val executor = ScheduledThreadPoolExecutor(2)
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getSomeImportant(input: User, compl: ((Result<ImportantThing>) -> Unit)) {
+    private fun getSomeImportant(input: User, compl: ChainOperationCompletion<ImportantThing>) {
         Log.d("Chaining", "Start GetSomeImportant")
 
         val executor = ScheduledThreadPoolExecutor(2)
